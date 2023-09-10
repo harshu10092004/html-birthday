@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Message for You</title>
+  <style>
+    /* Your CSS styles here */
+    @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+
+    body {
+      font-family: "Dancing Script", sans-serif;
+      background-image: linear-gradient(to right, #69D2E7, #A7DBD8);
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      perspective: 2000px;
+    }
+
+    .book {
+      width: 800px; /* Adjust the width as needed */
+      height: 600px; /* Adjust the height as needed */
+      position: relative;
+      transform-style: preserve-3d;
+    }
+
+    .page {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #F38630;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      font-size: 20px;
+      text-align: center;
+      padding: 20px;
+      line-height: 1.5;
+      color: #333;
+      transform: rotateY(0deg);
+      transition: transform 0.5s;
+      opacity: 0;
+    }
+
+    .page:nth-child(even) {
+      transform: rotateY(180deg);
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .back-button {
+      background-color: #fff;
+      border: none;
+      color: #F38630;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s, color 0.3s;
+      position: relative;
+      z-index: 2;
+    }
+
+    .back-button:hover {
+      background-color: #F38630;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="book">
+      <div class="page">
+        <h1>Woo Hoo!!</h1>
+        <p>Dear Harshu,</p>
+        <p>Yay now u r 19, Bachhi nahi rahi ab tu, bahut achha lag rha hoga shayad dar bhi, future itna sab happiness se full hoga na mast ekdm. I want to tell ke u r the best BFF. bas ese hi mil gaye ese hi bff ban gaye nd lucky to hv u. Harshu ese hi mast lgti h best, maje me hasti hui khub saari baatein krte hui bs ese hi rehna hamesah har moment. koi future past idhar udhar ka stress liye bina. kahne ko toh bht kuch h bt yha zyada kuch samjh nahi aa rha kya likhu aur wese bhi me toh subah sham kehta hi rehta hu tujhe. enjoy hv fun this is ur day infact everyday is you day. Lots of hugs for you and hum toh hamesha idhar hi h. ekdusre ko khi jaane toh hum denge nhi :D. take a lots and lots of care. or haan oye, tu meri the most fav person hai.</p>
+        <p>With love and best wishes,</p>
+        <p>~ Sudhir</p>
+      </div>
+      <div class="page">
+        <img src="./images/text-happy-birthday-and-green-frog-on-blue-vector-32913424.jpg" width="825" height="625">
+      </div>
+      <div class="page">
+        <img src="./images/istockphoto-1157775247-612x612.jpg" width="825" height="625" >
+      </div>
+      <div class="page">
+        <img src="./images/party-set-with-snake-colorful-items-white-background-inscription-happy-birthday-multicolored-vector_71599-8169.avif" width="825" height="625">
+      </div>
+      <div class="page">
+        <img src="./images/watercolor-card-cute-sloth-flowers-birthday-173287061.jpg" width="825" height="490">
+        <h1>from me ~ your bff sudhir</h1>
+        <a href="index.html" class="back-button">Back to Main</a>
+      </div>
+    </div>
+    <a href="javascript:void(0);" class="back-button" onclick="previousPage()">Previous Page</a>
+    <a href="javascript:void(0);" class="back-button" onclick="nextPage()">Next Page</a>
+  </div>
+
+  <script>
+    let currentPage = 0;
+    const pages = document.querySelectorAll(".page");
+
+    function showPage(pageIndex) {
+      pages.forEach((page, index) => {
+        if (index === pageIndex) {
+          page.style.transform = "rotateY(0deg)";
+          page.style.opacity = 1;
+        } else {
+          page.style.transform = "rotateY(180deg)";
+          page.style.opacity = 0;
+        }
+      });
+    }
+
+    function previousPage() {
+      currentPage = (currentPage - 1 + pages.length) % pages.length;
+      showPage(currentPage);
+    }
+
+    function nextPage() {
+      currentPage = (currentPage + 1) % pages.length;
+      showPage(currentPage);
+    }
+
+    showPage(currentPage);
+  </script>
+</body>
+</html>
